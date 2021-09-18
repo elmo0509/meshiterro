@@ -3,10 +3,10 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-         
+
   # Userモデルに対して、PostImageモデルが１：Nになるように関連づけ
   has_many :post_images, dependent: :destroy
-  
+
   # Userモデルに対して、PostCommentモデルが１：Nになるように関連づけ
-  has_many :post_comments, dependent: :destro
+  has_many :post_comments, dependent: :destroy
 end
