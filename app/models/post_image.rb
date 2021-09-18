@@ -4,7 +4,15 @@ class PostImage < ApplicationRecord
   belongs_to :user
   attachment :image
 
-  #PostCommentモデルに対して、PostImageモデルが１：Nになるよう関連づけ
+  #PostImageモデルに対して、PostCommentモデルが１：Nになるよう関連づけ
   has_many :post_comments, dependent: :destroy
+
+  # PostImageモデルに対して、Favoriteモデルが１：Nになるように関連づけ
+  has_many :favorites, dependent: :destroy
+
+  # 引数で渡されたユーザidがFavoritesテーブル内に存在するかどうか
+  def favorited_by?(user)
+    favorites.where(user_id: user.id).exists?
+  end
 
 end

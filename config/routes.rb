@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :post_images, only: [:new, :create, :index, :show, :destroy] do
     # コメントは、登校画像に対してコメントされる。
     # post_commentsは、post_imagesに結びつく
+    resource :favorites, only: [:create, :destroy]
     resources:post_comments, only: [:create, :destroy]
   end
 
