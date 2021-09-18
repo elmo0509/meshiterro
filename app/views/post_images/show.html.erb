@@ -22,7 +22,7 @@
 <div>
   <!--コメントは、post_imageに結びついたpost_commentにあるため、2つ用意する必要がある-->
   <%= form_with(model:[@post_image, @post_comment], local:true) do |f| %>
-  <%= f.text_area :comment, rows:'5',placeholder. "コメントをここに" %>
+  <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
   <%= f.submit "送信する" %>
   <% end %>
 </div>
