@@ -6,4 +6,7 @@ class User < ApplicationRecord
          
   # Userモデルに対して、PostImageモデルが１：Nになるように関連づけ
   has_many :post_images, dependent: :destroy
+  
+  # Userモデルに対して、PostCommentモデルが１：Nになるように関連づけ
+  has_many :post_comments, dependent: :destro
 end

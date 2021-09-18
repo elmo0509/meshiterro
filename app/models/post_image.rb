@@ -4,4 +4,7 @@ class PostImage < ApplicationRecord
   belongs_to :user
   attachment :image
   
+  #PostCommentモデルに対して、PostImageモデルが１：Nになるよう関連づけ
+  has_many :post_comments, dependent: :destroy
+  
 end
