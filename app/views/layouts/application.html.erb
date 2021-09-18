@@ -14,6 +14,11 @@
     <!--ログイン済みならtrue、ログインしていなければfalseが返される-->
     <% if user_signed_in? %>
     
+    <!--ヘッダー編集・投稿フォーム追加-->
+    <li>
+      <%= link_to '投稿フォーム', new_post_image_path %>
+    </li>
+    
     <!--ログイン済みの場合-->
     <li>
       <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
