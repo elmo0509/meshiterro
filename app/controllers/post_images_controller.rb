@@ -10,8 +10,13 @@ class PostImagesController < ApplicationController
     # current_userはdeviseのヘルパーメソッド
     # ログイン中のユーザー情報を取得できる。そのため、current_user.idでログインユーザーのidを取得できる
     @post_image.user_id = current_user.id
-    @post_image.save
-    redirect_to post_images_path
+
+    # バリデーション設定
+    if @post_image.save
+      redirect_to post_images_path
+    else
+      render :new
+    end
   end
 
   def index
