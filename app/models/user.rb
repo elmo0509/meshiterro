@@ -12,5 +12,6 @@ class User < ApplicationRecord
   
   # Userモデルに対して、Favoriteモデルが１：Nになるように関連づけ
   has_many :favorites, dependent: :destroy
+  attachment :profile_image
   
 end
